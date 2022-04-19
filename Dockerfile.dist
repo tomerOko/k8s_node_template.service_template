@@ -1,0 +1,11 @@
+# choose a basic image to start from
+FROM node:16
+
+# a convention directory name to put the app in
+RUN mkdir app
+
+# copy the compiled js files into the container
+COPY ./dist /app
+
+# run with node the project root file (index.js) 
+ENTRYPOINT [ "node","/app/index.js" ]

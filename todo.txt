@@ -1,0 +1,113 @@
+add git ignore
+להבין איך נראה ההרצה בפרוד של הקבצי ג'אווה סקריפט
+so each service / package will be a different git repo. end every pakcage will registered in npm
+save the hash table as an npm package and use it in other project
+do 
+1. save the hash table as an npm package
+2. integrate with the bps repository advantages
+3. docker for local development
+* skaffold 
+* ingress
+* nats event bus
+* scripts
+* doc
+* jest
+* lunch config
+* 2 tsconfig
+* add some design patterns example
+a run script? - check in other service
+shared types folder?
+readme
+integrate with the bps repository advantages
+share content between containers
+
+what about the db
+    * need to learn about it never used persistant data in k8s] 
+    * with docker compouse u could just mount a directory from the OS file system
+
+
+run : 
+
+in production
+-------------
+    so there is a cluster running in the cloud, getting http requests 
+    from a cloudFront/cloundFlare to an ingress to a service(that includs load balancer) to the pod's networking drive
+    the a specifi port that nodeJS registered itself as the listener
+    and now the request's finaly made it into Express
+
+
+in local development
+-------------
+    so there is a cluster running locally getting requests from postman/ngrok/browser throw custom host
+    a ingress to a service(that includs load balancer) to the pod's networking drive
+    the a specifi port that nodeJS registered itself as the listener
+    and now the request's finaly made it into Express
+
+
+in cloud development
+-------------
+    so there is a a cluster and a replica cluster for dev, both running in the cloud, 
+    skaffold sync files from the local machine / rebuild image from the local machine to docker hub and rebuild the pod from that image , 
+    getting http requests from a cloudFront/cloundFlare to an ingress to a service(that includs load balancer) to the pod's networking drive
+    the a specifi port that nodeJS registered itself as the listener
+    and now the request's finaly made it into Express
+
+
+
+in hybrid development (only the the one service being developed run's locally)
+-------------
+    so there is a a cluster and a replica cluster for dev, both running in the cloud, 
+    option 1)   the cluster considering the local machine as part of the resource grop and the deployment of the 
+                pod being developed run's locally, snd skaffold do its thing locally (no need to go through docker hub)
+    option 2)   the event bus just sends https requests to the serviec running locally like any other external resource
+    option 3)   maybe k8s have some out of the box solution for
+
+
+
+    so there is a cluster running locally getting requests from postman/ngrok/browser throw custom host
+    a ingress to a service(that includs load balancer) to the pod's networking drive
+    the a specifi port that nodeJS registered itself as the listener
+    and now the request's finaly made it into Express
+
+
+what being part of the cluster give to a deployment
+1. it gets the compute power it's nedded
+2. it can get 
+3. it gets reloded
+4. insted of having public ip for every running container, only the cluster gets a public ip. 
+    then ther is ingresses reciving the reqest snd redirect's all of them by http header 'host name' to clusterIP services
+    then 
+
+---------------------------------------------------------------
+export as a npm private repo
+
+* think what part of the compilation shuld avoid the test files 
+** what part are there?
+
+*** for debug compilations
+**** i think that while debugging tsc work regullarly just create files that lets the compiller do the maching between ts code and build code
+**** shuld not avoid test while debugging
+
+
+*** for nodemon localy compilation to memory
+**** it compile all files that are imported in the root file and run the root file as script -
+**** so there is two option 
+1: import all script to an 'index' file and have two 'lunch' configurations for the debuggers
+**** maybe it isn't common to debug tests?
+**** nodemon shuld probably run seperatly for fanctionality run and for test run
+
+*** for build in order to run in production
+
+*** for test runs
+
+* how can i get smarter now?
+** meditate
+** drink water
+** do straches
+** eat some carbs - like a cookie or crasunt
+
+
+nodemon index.ts   = build to memory and run
+tsc  = build 
+VScode debugg lunch bottum   = build to memory with mapping and run + run the vscode dubbeger interface
+jest   = build all .test.ts and imported files to memory + and run jest binaries on them?
