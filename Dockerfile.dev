@@ -1,11 +1,19 @@
-FROM node:16
+# choose a basic image to start from
+FROM node:17-alpine3.14
 
-RUN apt-get update
+# install bash
+RUN apk add --no-cache --upgrade bash
 
+# needed global packages for the project
 RUN npm i -g typescript nodemon ts-node
 
+# defines where to run the 'ENTRYPOINT' command from
 WORKDIR /app
 
+# copy the files into the image
+# * later skafold will 'inject' code updates and nodemon will load them
 COPY . .
 
-ENTRYPOINT nodemon src/index.ts
+# set the default main command of the container to run 'nodemon src/index.ts'
+ENTRYPOINT ["nodemon" , "src/index.ts" ]
+

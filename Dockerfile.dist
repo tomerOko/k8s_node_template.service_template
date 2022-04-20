@@ -1,5 +1,8 @@
 # choose a basic image to start from
-FROM node:16
+FROM node:17-alpine3.14
+
+# install bash
+RUN apk add --no-cache --upgrade bash
 
 # a convention directory name to put the app in
 RUN mkdir app
