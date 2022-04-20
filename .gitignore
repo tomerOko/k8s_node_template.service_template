@@ -119,11 +119,9 @@ dist
 
 # Project
 .idea
-.vscode
 coverage/
 typedocs/
 files/
 
 .npmrc
-package-lock.json
-
+/out

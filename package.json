@@ -9,7 +9,6 @@
   "author": "tomer oko",
   "license": "MIT",
   "dependencies": {
-    "binary-search-tree": "^0.2.6",
     "uuid": "^8.3.2"
   },
   "devDependencies": {

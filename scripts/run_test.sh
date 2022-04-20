@@ -1,7 +1,6 @@
 #!/bin/sh
 # run from <...>/scripts
 # !!! if u have any http request level test, make sure the port is right 
-
 cd ../ 
 
 # load flags from the run command (bash <script name>.sh --<flag key> <flag value>)
