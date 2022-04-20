@@ -1,0 +1,1 @@
+echo mock_k8s_related_script
