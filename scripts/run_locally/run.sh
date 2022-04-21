@@ -1,6 +1,6 @@
 #!/bin/sh
 # run from <...>/scripts
-cd ../../ 
+cd ../
 
 # load flags from the run command (bash <script name>.sh --<flag key> <flag value>)
 while getopts i:c:p:r: flag
@@ -27,7 +27,8 @@ if [ -z "$port" ];then
 fi
 
 if [ -z "$runCommand" ];then
-    runCommand="";
+    echo "no command supplied to the script! sending '/bin/bash' as command to docker run";
+    runCommand="/bin/sh";
 fi
 
 # look for arguments
@@ -35,6 +36,7 @@ for var in "$@"
 do
     case "${var}" in
         no-build) noBuild=1;;
+        bash-in) bashIn=1;;
     esac
 done
 
@@ -44,11 +46,16 @@ if ([ -n "$(docker images -q $imageName)" ] && [ -n "$noBuild" ]);
 then
     echo "image is exist and 'no-build' flag is on => not building image $imageName";
 else
-    sudo docker build -t $imageName -f Dockerfile.nok8s # build
+    sudo docker build -t $imageName . # build
 fi
-sudo chown -R $USER:$(id -gn $USER) ./* # give permmisions in order to be able to adit the files
-docker container rm -f $containerName # remove container if allready runing
-docker run -itd --name $containerName -p $port:3000 -v "$(pwd)"/:/app/ $imageName "$runCommand" # run the container (entrypoint in dockerfile)
-sleep 1 # give the container a second to boot
-docker container ls --filter name=$containerName # make sure the container is actualy runing
-docker logs --follow $containerName # connect the shell to the container's logs outpout
+sudo chown -R $USER:$(id -gn $USER) ./*;# give permmisions in order to be able to adit the files
+docker container rm -f $containerName; # remove container if allready runing
+docker run -itd --name $containerName -p $port:3000 -v "$(pwd)"/:/app/ $imageName "$runCommand"; # run the container (entrypoint in dockerfile)
+sleep 1; # give the container a second to boot
+docker container ls --filter name=$containerName; # make sure the container is actualy runing
+if ( [ -n "$bashIn" ] );
+then
+    docker exec -it $containerName /bin/bash;# open new terminal inside the container and connect to it
+else
+    docker logs --follow $containerName; # connect the shell to the container's logs outpout
+fi
