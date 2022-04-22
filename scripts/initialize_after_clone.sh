@@ -1,3 +1,5 @@
+#!/bin/sh
+
 cd../
 
 sudo chown -R $USER:$(id -gn $USER) ./* # this gives the host OS (and by that to the code editor u using) permissions to eddit the content of this folder
