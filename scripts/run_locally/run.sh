@@ -1,6 +1,6 @@
 #!/bin/sh
 # run from <...>/scripts
-cd ../
+cd ../../
 
 # load flags from the run command (bash <script name>.sh --<flag key> <flag value>)
 while getopts i:c:p:r: flag
@@ -46,7 +46,7 @@ if ([ -n "$(docker images -q $imageName)" ] && [ -n "$noBuild" ]);
 then
     echo "image is exist and 'no-build' flag is on => not building image $imageName";
 else
-    sudo docker build -t $imageName . # build
+    sudo docker build -t $imageName -f Dockerfile.nok8s .  # build
 fi
 sudo chown -R $USER:$(id -gn $USER) ./*;# give permmisions in order to be able to adit the files
 docker container rm -f $containerName; # remove container if allready runing
