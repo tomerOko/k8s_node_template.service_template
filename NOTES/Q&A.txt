@@ -1,0 +1,6 @@
+* think what part of the compilation shuld avoid the test files 
+        -   there is a test container, dev container, build container, and prod container,
+        the test container compile the logic and tests and run the tests, the dev container 
+        also compile them both but run test only if commanded, the build container (or through
+        the dev container command), will run tsc with a production tsConfig file the will
+        not compile test (and not dev dependecies, set appropriate environment variables, and more..)
