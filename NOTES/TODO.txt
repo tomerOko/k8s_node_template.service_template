@@ -3,8 +3,10 @@ tasks:
 a. create a proper express server, with
     0. proper flow (index, server, app, router, controller, service, dal)
     1. proper middlewares (validation, security(rate limiter, body check))
+    1.2. proper dependency injection (there is somewhere small research I made
+    on the best DI container npm package) 
     2. error handling
-    3. standards
+    3. syntax standards
     4. DB connectors (let's say mongo, MySQL, Postgres)
     5. cashing with Redis?
     6. proper prod/dev configs
