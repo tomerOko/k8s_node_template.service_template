@@ -33,7 +33,7 @@
 <br>
 
 ## test
-1. cd into scripts folder
+1. cd into the scripts folder
 2. run `bash run_test.sh` (same optional parameters as the run_dev script)
 3. u will be asked for sudo permissions - explained at the bottom of the file (*1)
 
@@ -42,13 +42,13 @@
 
 ## debug
 a 'lunch.json' file is existed for VS code.  
-probably wont be two hurd to
+probably won't be two hard to
 
 
 <br>
 
 ## build
-1. cd into scripts folder
+1. cd into the scripts folder
 2. run `bash build_for_prod.sh` 
 3. the js files will be at \<root directory>/out
 

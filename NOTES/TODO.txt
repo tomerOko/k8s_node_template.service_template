@@ -2,16 +2,16 @@ tasks:
 ------
 a. create a proper express server, with
     0. proper flow (index, server, app, router, controller, service, dal)
-    1. proper middelwares (validation, security(rate limmiter, body check))
+    1. proper middlewares (validation, security(rate limiter, body check))
     2. error handling
-    3. standarts
-    4. db connectors (let say mongo, mysql, postgres)
-    5. cashing with redis?
+    3. standards
+    4. DB connectors (let's say mongo, MySQL, Postgres)
+    5. cashing with Redis?
     6. proper prod/dev configs
     7. proper logging
     8. proper documentation
     9. proper tests (unit + end to end)
-b. configs best practices (production / dev, package.json variables, Dockerfile variables, configMaps variables, secrets variable, jenkins variable)
+b. configs best practices (production/dev, package.json variables, Dockerfile variables, config maps variables, secrets variable, jenkins variable)
 c. create different tsconfig.json files for pord and for dev 
 d. add some design patterns example
 
