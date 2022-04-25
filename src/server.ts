@@ -1,3 +1,13 @@
+/**
+ * 'server.ts' resposabilities: (i think it is always a small )
+ *      a. eventually load the 'app.ts'
+ *      b. listening on port/ports
+ *      c. add a websocket server
+ *      d. log about listening on port
+ *      e. 
+ *      
+ */
+
 import './config/loadEnvFirst'
 import express, { Application, Request, Response, NextFunction } from "express";
 import http from 'http';
