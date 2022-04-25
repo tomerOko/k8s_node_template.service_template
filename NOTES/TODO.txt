@@ -13,11 +13,41 @@ a. create a proper express server, with
     7. proper logging
     8. proper documentation
     9. proper tests (unit + end to end)
+    10. proper environment variable
+        a. comment above every group in what modulte are they used
+        b. seperate to files?
 b. configs best practices (production/dev, package.json variables, Dockerfile variables, config maps variables, secrets variable, jenkins variable)
-c. create different tsconfig.json files for pord and for dev 
+c. create different tsconfig.json files for 'prod' and 'dev' 
 d. add some design patterns example
+e. security
+    1. HTTPS handshake - recall this,
+    2. JWT - then learn this
+f. server.ts, index.ts, and app.ts best practices
+g. keeping with the k8s course - connecting to a streaming service (changes the structure of the services)
+h. lear about modules/namespaces
+i. design patterns
 
 
 open questions:
 ---------------
+    * where is the environment 'loading' happening?
+        a. environment
+            1. what DB to connect 
+            2. what third party address to use (mock/real)
+            3. what dependencies to load? (test, dev, prod)
+        b. secrets
+            1. database connection credentials
+            2. encryption (before storing)
+            3. service mash
+        c. check/create connections
+            1. database
+            2. third party APIs
+            3. event bus
+        d. networking
+            1. listening to port
+            2. WebSockets?
+        
+        eventually
+
+
     * shared types folder?
