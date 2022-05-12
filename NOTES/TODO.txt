@@ -3,19 +3,30 @@ tasks:
 a. create a proper express server, with
     0. proper flow (index, server, app, router, controller, service, dal)
     1. proper middlewares (validation, security(rate limiter, body check))
-    1.2. proper dependency injection (there is somewhere small research I made
-    on the best DI container npm package) 
-    2. error handling
+    1.2. proper dependency injection 
+        a. (there is somewhere small research I made on the best DI container npm package)
+        b. didnt found that research but:
+            I. refresh my memory no depndency inversion (testability (injecting mocks), easy dev,) 
+    2. propper error handling
+        1. a documented standard
+        2. un handeled requests
+        3. response codes
     3. syntax standards
     4. DB connectors (let's say mongo, MySQL, Postgres)
     5. cashing with Redis?
     6. proper prod/dev configs
     7. proper logging
+        a. standard for metrixes
+        b. avoid logging secrets
+        c. readable by humans and machines
+        d. more best practices
     8. proper documentation
     9. proper tests (unit + end to end)
-    10. proper environment variable
+    10. proper environment variable loading
         a. comment above every group in what modulte are they used
         b. seperate to files?
+        c. a single source of truth (having aventualy one single place that concentrate all the environment settings)
+        d. a template
 b. configs best practices (production/dev, package.json variables, Dockerfile variables, config maps variables, secrets variable, jenkins variable)
 c. create different tsconfig.json files for 'prod' and 'dev' 
 d. add some design patterns example
@@ -30,24 +41,5 @@ i. design patterns
 
 open questions:
 ---------------
-    * where is the environment 'loading' happening?
-        a. environment
-            1. what DB to connect 
-            2. what third party address to use (mock/real)
-            3. what dependencies to load? (test, dev, prod)
-        b. secrets
-            1. database connection credentials
-            2. encryption (before storing)
-            3. service mash
-        c. check/create connections
-            1. database
-            2. third party APIs
-            3. event bus
-        d. networking
-            1. listening to port
-            2. WebSockets?
-        
-        eventually
-
 
     * shared types folder?
