@@ -5,7 +5,7 @@ a. create a proper express server, with
     1. proper middlewares (validation, security(rate limiter, body check))
     1.2. proper dependency injection 
         a. (there is somewhere small research I made on the best DI container npm package)
-        b. didnt found that research but:
+        b. didn't find that research but:
             I. refresh my memory no depndency inversion (testability (injecting mocks), easy dev,) 
     2. propper error handling
         1. a documented standard
@@ -16,16 +16,24 @@ a. create a proper express server, with
     5. cashing with Redis?
     6. proper prod/dev configs
     7. proper logging
-        a. standard for metrixes
+        a. standard for matrixes
         b. avoid logging secrets
         c. readable by humans and machines
         d. more best practices
     8. proper documentation
+        a. update readme
+        b. read about documentation best practices
+        c. an automatic documentation solution
     9. proper tests (unit + end to end)
+        a. unit test examples
+        b. integration test examples
+        c. end to end test examples
+        d. different test scripts (allFiles/openFiles, verbose?, watch?)
+        e. different test debug (lunch) configs (all Files/open Files, verbose?, watch?)
     10. proper environment variable loading
-        a. comment above every group in what modulte are they used
-        b. seperate to files?
-        c. a single source of truth (having aventualy one single place that concentrate all the environment settings)
+        a. comment above every group in what module are they used
+        b. separate to files? 
+        c. a single source of truth (having eventually one single place that concentrates all the environment settings)
         d. a template
 b. configs best practices (production/dev, package.json variables, Dockerfile variables, config maps variables, secrets variable, jenkins variable)
 c. create different tsconfig.json files for 'prod' and 'dev' 
@@ -35,7 +43,7 @@ e. security
     2. JWT - then learn this
 f. server.ts, index.ts, and app.ts best practices
 g. keeping with the k8s course - connecting to a streaming service (changes the structure of the services)
-h. lear about modules/namespaces
+h. learn about modules/namespaces
 i. design patterns
 
 
