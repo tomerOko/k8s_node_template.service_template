@@ -10,41 +10,45 @@
         "outFiles": ["/app/out/**/*.js"]
       },
       {
-        "type": "node",
-        "request": "launch",
+        "type": "node", 
+        "request": "launch", 
         "name": "Jest run all tests (no watch)",
         "program": "/app/node_modules/jest/bin/jest.js",
         "args": [
-          "--verbose",
-          "-i",
-          "--no-cache"
+          "--verbose", // check if it is worse it.. and spread
+          "-i", // check if it is worker per test/describe/expect and spread
+          "--watch" // probably more relevant for specific file, thoug
         ],
         "console": "integratedTerminal",
-        "internalConsoleOptions": "neverOpen"
+        "internalConsoleOptions": "neverOpen",
+        "windows": {
+          "program": "${workspaceFolder}/node_modules/jest/bin/jest",
+        }
       },
       {
         "type": "node",
-        "request": "launch",
-        "name": "Jest run & watch currently opened",
-        "program": "/app/node_modules/jest/bin/jest.js",
+        "request": "launch", 
+        "name": "Jest run & watch currently opened", 
+        "program": "/app/node_modules/jest/bin/jest.js", 
         "args": [
           "${fileBasenameNoExtension}",
-          "--verbose",
-          "-i",
-          "--no-cache",
-          "--watchAll"
         ],
-        "console": "integratedTerminal",
-        "internalConsoleOptions": "neverOpen"
+        "console": "integratedTerminal", 
+        "internalConsoleOptions": "neverOpen", 
+        "windows": {
+          "program": "${workspaceFolder}/node_modules/jest/bin/jest",
+        }
       },
       {
         "type": "node",
         "request": "launch",
         "name": "Jest All",
         "program": "${workspaceFolder}/node_modules/.bin/jest",
-        "args": ["--runInBand"],
-        "console": "integratedTerminal",
-        "internalConsoleOptions": "neverOpen",
+        "args": [
+          "-i"
+        ],
+        "console": "integratedTerminal", 
+        "internalConsoleOptions": "neverOpen", 
         "windows": {
           "program": "${workspaceFolder}/node_modules/jest/bin/jest",
         }
@@ -55,7 +59,7 @@
         "name": "Jest Current File",
         "program": "${workspaceFolder}/node_modules/.bin/jest",
         "args": [
-          "--runTestsByPath",
+          "-i",
           "${relativeFile}",
           "--config",
           "jest.config.js"
