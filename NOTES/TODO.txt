@@ -2,14 +2,15 @@ tasks:
 ------
 a. create a proper express server, with
     0. proper flow (index, server, app, router, controller, service, dal)
+    0.1 proper REST-FULLs API's
     1. proper middlewares (validation, security(rate limiter, body check))
     1.2. proper dependency injection 
         a. (there is somewhere small research I made on the best DI container npm package)
         b. didn't find that research but:
-            I. refresh my memory no depndency inversion (testability (injecting mocks), easy dev,) 
+            I. refresh my memory no dependency inversion (testability (injecting mocks), easy dev,) 
     2. propper error handling
         1. a documented standard
-        2. un handeled requests
+        2. unhandled requests
         3. response codes
     3. syntax standards
     4. DB connectors (let's say mongo, MySQL, Postgres)
@@ -43,7 +44,6 @@ e. security
     2. JWT - then learn this
 f. server.ts, index.ts, and app.ts best practices
 g. keeping with the k8s course - connecting to a streaming service (changes the structure of the services)
-h. learn about modules/namespaces
 i. design patterns
 
 

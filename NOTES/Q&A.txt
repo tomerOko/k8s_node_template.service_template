@@ -4,3 +4,17 @@
         also, compile them both but run test only if commanded, the build container (or through
         the dev container command), will run 'tsc' with a production 'tsConfig' file the will
         not compile test (and not dev dependencies, set appropriate environment variables, and more...)
+
+
+* should 'server' and 'app' be a class or a script?
+        - pro's of script:
+                1. no constructor so no need to inject anything
+                2. no need to instantiate 
+        - pro's of class:
+                1. a constructor that I can inject dependencies into like
+                        a. for server
+                        - a mock app
+                        - a mock environment
+                        b. for app
+                        - mock dependencies instead of npm packages - (better do with jest's mock module?)'
+                        - mock router
