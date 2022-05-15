@@ -7,13 +7,31 @@
  *      d. log about listening on port
  */
 
+import {app} from './app'
+
+import {createServer} from 'http' 
+import {EnvironmentVariables} from './config/environment/index'
+
+interface ServerInterface {
+    listen()
+}
+
+class Server implements ServerInterface{
+
+    constructor(){}
+
+
+    listen() {
+        const server = createServer()
+        server.addListener('request',app)
+        server.listen(new EnvironmentVariables().getENVs().server.port)
+    }
+}
 
 
 
 
 
-
-// import * as http from 'http';
 // import logging from './middleware/logging';
 // import './socketServer'
 // import { socketServer } from './socketServer';

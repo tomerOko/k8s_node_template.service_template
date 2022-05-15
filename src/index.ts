@@ -24,5 +24,8 @@
 
 
 import * as process from 'process';
+import Server from './server'
 
 console.log(`service has started at ${Date.now().toLocaleString()} ` , `Version: ${process.version}`) //TODO: 1.replace with a propper logger 2. add some info like $ip, $time, $serviceName, $NODE_ENV
+
+const server = Server.createServer()
