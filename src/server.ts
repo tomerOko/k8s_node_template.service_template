@@ -10,7 +10,7 @@
 import {app} from './app'
 
 import {createServer} from 'http' 
-import {EnvironmentVariables} from './config/environment/index'
+import {EnvironmentVariables} from './config/ENV/index'
 
 interface ServerInterface {
     listen()
