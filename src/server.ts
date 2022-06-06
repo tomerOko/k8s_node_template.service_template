@@ -35,5 +35,26 @@
 // httpServer.listen(process.env.PORT, () => logging.info(`Server is running on default host :${process.env.PORT}`));
 
 
+// import {app} from './app'
+// import {createServer} from 'http' 
+// import {EnvironmentVariables} from './config/ENV/index'
+
+// interface ServerInterface {
+//     listen()
+// }
+
+// class Server implements ServerInterface{
+
+//     constructor(){}
+
+
+//     listen() {
+//         const server = createServer()
+//         server.addListener('request',app)
+//         server.listen(new EnvironmentVariables().getENVs().server.port)
+//     }
+// }
+
+
 
 
