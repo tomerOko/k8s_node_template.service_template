@@ -2,31 +2,62 @@ tasks:
 ------
 a. create a proper express server, with
     0. proper flow (index, server, app, router, controller, service, dal)
+    0.1 proper REST-FULLs API's
     1. proper middlewares (validation, security(rate limiter, body check))
     1.2. proper dependency injection 
         a. (there is somewhere small research I made on the best DI container npm package)
-        b. didnt found that research but:
-            I. refresh my memory no depndency inversion (testability (injecting mocks), easy dev,) 
+        b. didn't find that research but:
+            I. refresh my memory no dependency inversion (testability (injecting mocks), easy dev,) 
     2. propper error handling
         1. a documented standard
-        2. un handeled requests
+        2. unhandled requests
         3. response codes
     3. syntax standards
     4. DB connectors (let's say mongo, MySQL, Postgres)
     5. cashing with Redis?
     6. proper prod/dev configs
     7. proper logging
-        a. standard for metrixes
+        a. standard for matrixes
         b. avoid logging secrets
         c. readable by humans and machines
         d. more best practices
     8. proper documentation
+        a. update readme
+        b. read about documentation best practices
+        c. an automatic documentation solution
     9. proper tests (unit + end to end)
+        a. unit test examples
+        b. integration test examples
+        c. end to end test examples
+        d. different test scripts (allFiles/openFiles, verbose?, watch?)
+        e. different test debug (lunch) configs (all Files/open Files, verbose?, watch?)
     10. proper environment variable loading
-        a. comment above every group in what modulte are they used
-        b. seperate to files?
-        c. a single source of truth (having aventualy one single place that concentrate all the environment settings)
-        d. a template
+        a. comment above every group in what module are they used
+        b. separate to files? 
+        c. an example template
+        d. a single source of truth (having eventually one single place that concentrates all the environment settings)
+            - importable (singleton)
+            - created from the last module importing it (first on runtime) (async imports??)
+            - changeable and unchangeable groups (object.lock/freeze)
+            - Joi validates (and documentation)
+            - exported with types
+            - all env's imported to one place 
+                * from Procces.ENV: Dockerfile, deployment, config maps, jenkins, OS defaults, scripts
+                * from files in the project: env, .json, .ts/.js
+                * secrets
+כרגע כל הקבצים נכנסים לי פרוסס אז הסדר עדיפוית שם זה לא ענינו של הסרבר - רק לתעד את זה
+מבחינת קבצים / פרוסס / ערך דיפולטיבי - צריך שתהיה איזשהי מערכת של סדר עדיפויות
+מה הקטע של הטייפס - 
+ * בטוח שהאינטליסנס ידע את הפרופרטיס
+ * שתהיה הערה מעל כל ערך
+אולי גם ממש סוג
+
+דוגמאות לenv'
+databse connction string
+user creditcard encryption codes
+
+
+
 b. configs best practices (production/dev, package.json variables, Dockerfile variables, config maps variables, secrets variable, jenkins variable)
 c. create different tsconfig.json files for 'prod' and 'dev' 
 d. add some design patterns example
@@ -35,9 +66,9 @@ e. security
     2. JWT - then learn this
 f. server.ts, index.ts, and app.ts best practices
 g. keeping with the k8s course - connecting to a streaming service (changes the structure of the services)
-h. lear about modules/namespaces
 i. design patterns
 
+* fix initialization script
 
 open questions:
 ---------------
