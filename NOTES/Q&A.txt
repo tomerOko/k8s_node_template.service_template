@@ -1,5 +1,5 @@
 
-* should 'server' and 'app' be a class or a script?
+* should 'server' and 'app' be a class or a script? - 🥸a class🥸
         - pro's of script:
                 1. no constructor so no need to inject anything
                 2. no need to instantiate 
@@ -13,5 +13,18 @@
                         - mock router
         shuld ENV properties, db connections, or what ever, be a dependency of the server?
 
-* should server creation be asynchronous?
+* should server creation be asynchronous? 🥸nope - logycaly this is a synchronous process🥸
         - if yes: should index.ts import it as IFEE?
+
+
+
+
+* what can be on a configuraion object
+
+        1. cloud settings
+                * what origin
+                * file storage path and cradentials
+        2. something to do with other services communication
+        3. security
+                * hasing passwords
+        4. third parties
