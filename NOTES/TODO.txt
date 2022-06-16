@@ -1,22 +1,49 @@
-tasks:
-------
-a. create a proper express server, with
-    0. proper flow (index, server, app, router, controller, service, dal)
+solution description:
+---------------------
+a. create a template with the musts
+    0. proper flow (index, server, app, router, body validation, controller, service, dal + best practices)
     0.1 proper REST-FULLs API's
-    1. proper middlewares (validation, security(rate limiter, body check))
-    1.2. proper dependency injection 
-        a. (there is somewhere small research I made on the best DI container npm package)
-        b. didn't find that research but:
-            I. refresh my memory no dependency inversion (testability (injecting mocks), easy dev,) 
-    2. propper error handling
-        1. a documented standard
-        2. unhandled requests
+    1. proper middlewares => and look for a good source to even know what middlewares to use
+        a. validations? 
+        b. security
+            I. hpp
+            II. halmet
+            III. cors
+            IV. rate limiter
+            V. body check
+            VI. ...
+        c. parsing
+            I. url params
+            II. cookie parsing
+            III. body parsing
+            IV....
+        d. flow
+            I. catch unhandeled requests
+            II. catch errors
+            III. add some token / ID to requests
+            IV. session
+        e. and more
+    1.2. proper dependency inversion *i made a custom repo that might be good for that* 
+                                                                  כותבים מחלקה 
+                                                          ואז משתמשים באינטרפייסים שקימים | או שלא קיימים 
+                                                        ואז זה אינטרפייסים קיימים מדלגים על השלב | או שכותבים אותם
+ואז משתמשים במחלקה קיימת שמממשת | כותבים מימוש נוסף לאינטרפיס | כותבים מחלקה ראשונה שממשת את האינטרפייס עם הפונקציונאליות שאנחנו צריכים
+                                  ואז חוזרים למחלקה הראשונה ושמים את המחלקות האלה כדיפולטיביות בקונסטרקטור
+        ואז אם מחלקה אחרת תרצה להשתמש במחלקה הזאת עם ערכים אחרים, היא פשוט בדיפולט בקונסטראקטור תממשת את המחלקה עם ערכים אחרים                    
+                                                                     וחוזר חלילה.
+                                                        עד שמגיעים למחלקות שלא צריכות כלום
+                                      ואז כשהתוכנית רצה פשוט ממשים את המחלקה הראשית ביותר וכל השאר דיפולטיבי
+                ואז צריך הזרקה רק בשביל מחלקות שחוזרות על עצמן הרבה ויכולות להשתנות כמו לוגר, קונפיג, חיבור לבסיס נתונים שפופולארי בדאל, 
+    2. propper error handling accross the app
+        1. a documented standard for handling and loggind about it
+        2. also handle unhandled requests
         3. response codes
     3. syntax standards
-    4. DB connectors (let's say mongo, MySQL, Postgres)
-    5. cashing with Redis?
-    6. proper prod/dev configs
-    7. proper logging
+        a. linting
+        b. just standarts
+    4. DB connectors (let's say mongo and mysql, but two at least to keep everything abstract)
+    5. cashing with Redis
+    7. proper logging => extemd morgan and create your own package
         a. standard for matrixes
         b. avoid logging secrets
         c. readable by humans and machines
@@ -31,46 +58,33 @@ a. create a proper express server, with
         c. end to end test examples
         d. different test scripts (allFiles/openFiles, verbose?, watch?)
         e. different test debug (lunch) configs (all Files/open Files, verbose?, watch?)
-    10. proper environment variable loading
+    10. proper configuration loading (env's ) => כרגע פשוט להשתמש במה שהכנתי ולזרום על זה כבר *i made a custom repo that might be good for that*
         a. comment above every group in what module are they used
-        b. separate to files? 
-        c. an example template
-        d. a single source of truth (having eventually one single place that concentrates all the environment settings)
-            - importable (singleton)
-            - created from the last module importing it (first on runtime) (async imports??)
-            - changeable and unchangeable groups (object.lock/freeze)
-            - Joi validates (and documentation)
-            - exported with types
-            - all env's imported to one place 
-                * from Procces.ENV: Dockerfile, deployment, config maps, jenkins, OS defaults, scripts
-                * from files in the project: env, .json, .ts/.js
-                * secrets
-כרגע כל הקבצים נכנסים לי פרוסס אז הסדר עדיפוית שם זה לא ענינו של הסרבר - רק לתעד את זה
-מבחינת קבצים / פרוסס / ערך דיפולטיבי - צריך שתהיה איזשהי מערכת של סדר עדיפויות
-מה הקטע של הטייפס - 
- * בטוח שהאינטליסנס ידע את הפרופרטיס
- * שתהיה הערה מעל כל ערך
-אולי גם ממש סוג
+        b. can be built from separate files 
+        c. initialization process (loading & conditionals)
+            I. for loading sources
+                - config maps
+                - for accessing some secrets provider
+            II. for conditional values
+                - keys with values dependent of dev / prod
+                - any other keys that their values depends on other config values
+        d. an example template
+        e. changeable and unchangeable groups (object.lock/freeze)
+        f. a single source of truth (having eventually one single place that concentrates all the configurations)
+        g. importable (singleton) & (last import by default always runing first)
+        h. some validation library (the validation also provide some documentation)
+        i. exported with types
+    11. create different tsconfig.json files for 'prod' and 'dev' 
+    12. proper linting
+    13. proper ci/cd
+a.2 another template to work as a *events streaming consumer* instead of *http server*
 
-דוגמאות לenv'
-databse connction string
-user creditcard encryption codes
-
-
-
-b. configs best practices (production/dev, package.json variables, Dockerfile variables, config maps variables, secrets variable, jenkins variable)
-c. create different tsconfig.json files for 'prod' and 'dev' 
-d. add some design patterns example
-e. security
-    1. HTTPS handshake - recall this,
-    2. JWT - then learn this
-f. server.ts, index.ts, and app.ts best practices
-g. keeping with the k8s course - connecting to a streaming service (changes the structure of the services)
-i. design patterns
-
-* fix initialization script
-
-open questions:
----------------
-
-    * shared types folder?
+b. add the none 'must' features / stuff i wanna learn
+    1. template module for websockets
+    2. proper initialization proccess (some modules are dependant on other like env's => secrets => third party => update env's)
+    3. add some design patterns example
+    4. security
+        I. HTTPS handshake - recall this,
+        II. JWT - then learn this
+    5. keeping with the k8s course - connecting to a streaming service (changes the structure of the services)
+    6. use some webhooks
