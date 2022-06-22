@@ -49,6 +49,7 @@ else
     sudo docker build -t $imageName -f Dockerfile.nok8s .  # build
 fi
 sudo chown -R $USER:$(id -gn $USER) ./*;# give permmisions in order to be able to adit the files
+echo "*ignore next error* ('container not found')"
 docker container rm -f $containerName; # remove container if allready runing
 docker run -itd --name $containerName -p $port:3000 -v "$(pwd)"/:/app/ $imageName "$runCommand"; # run the container (entrypoint in dockerfile)
 sleep 1; # give the container a second to boot
