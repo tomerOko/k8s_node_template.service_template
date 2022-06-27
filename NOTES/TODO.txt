@@ -1,10 +1,9 @@
 solution description:
 ---------------------
 a. create a template with the musts
-    0. proper flow (index, server, app, router, body validation, controller, service, dal + best practices)
-    0.1 proper REST-FULLs API's
+    0. proper flow (index, server, app, router, body validation, controller, service, dal + best practices) -J
+    0.1 proper REST-FULLs API's -J
     1. proper middlewares => and look for a good source to even know what middlewares to use
-        a. validations? 
         b. security
             I. hpp
             II. halmet
@@ -24,6 +23,14 @@ a. create a template with the musts
             IV. session
         e. and more
     1.2. proper dependency inversion *i made a custom repo that might be good for that* 
+פשוט כל מחלקה מקבלת בקונסטרקטור את כל
+    constructor(
+        private notPopularImplementation: mightBePopularInterface = (new) NotPopularImplementation() /.singleton() / .prototype(implementation params) / any other creational pattetn
+        private popularImplementation: popularInterface = dependencyIndex.popularInterface()
+    ){}
+
+    
+                                                            מבחינת פיתוח, הסדר הוא כזה
                                                                   כותבים מחלקה 
                                                           ואז משתמשים באינטרפייסים שקימים | או שלא קיימים 
                                                         ואז זה אינטרפייסים קיימים מדלגים על השלב | או שכותבים אותם
@@ -61,22 +68,13 @@ a. create a template with the musts
     10. proper configuration loading (env's ) => כרגע פשוט להשתמש במה שהכנתי ולזרום על זה כבר *i made a custom repo that might be good for that*
         a. comment above every group in what module are they used
         b. can be built from separate files 
-        c. initialization process (loading & conditionals)
-            I. for loading sources
-                - config maps
-                - for accessing some secrets provider
-            II. for conditional values
-                - keys with values dependent of dev / prod
-                - any other keys that their values depends on other config values
-        d. an example template
-        e. changeable and unchangeable groups (object.lock/freeze)
-        f. a single source of truth (having eventually one single place that concentrates all the configurations)
-        g. importable (singleton) & (last import by default always runing first)
-        h. some validation library (the validation also provide some documentation)
-        i. exported with types
-    11. create different tsconfig.json files for 'prod' and 'dev' 
-    12. proper linting
-    13. proper ci/cd
+        c. an example template
+        d. changeable and unchangeable groups (object.lock/freeze)
+        e. a single source of truth (having eventually one single place that concentrates all the configurations)
+        f. importable (singleton) & (last import by default always runing first)
+        g. some validation library (the validation also provide some documentation)
+        h. exported with types
+    11. tsconfig.json - create different files for 'prod' and 'dev' 
 a.2 another template to work as a *events streaming consumer* instead of *http server*
 
 b. add the none 'must' features / stuff i wanna learn
@@ -87,4 +85,12 @@ b. add the none 'must' features / stuff i wanna learn
         I. HTTPS handshake - recall this,
         II. JWT - then learn this
     5. keeping with the k8s course - connecting to a streaming service (changes the structure of the services)
-    6. use some webhooks
+    6. config initialization process (loading & conditionals)
+            I. for loading sources
+                - config maps
+                - for accessing some secrets provider
+            II. for conditional values
+                - keys with values dependent of dev / prod
+                - any other keys that their values depends on other config values
+    7. proper ci/cd
+
