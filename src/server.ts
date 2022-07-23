@@ -7,30 +7,27 @@
  *      d. log about listening on port
  */
 
-// import {app} from './app'
+import {app} from './app'
 
-// import {createServer} from 'http' 
-// // import {EnvironmentVariables} from './config/ENV/index'
+import {createServer} from 'http' 
+// import {EnvironmentVariables} from './config/ENV/index'
 
-// interface ServerInterface {
-//     listen()
-// }
+interface ServerInterface {
+    listen()
+}
 
 
-// class Server implements ServerInterface{
+class Server implements ServerInterface{
 
-//     constructor(){}
+    constructor(){}
 
-//     listen() {
-//         const server = createServer()
-//         server.addListener('request',app)
-//         // server.listen(new EnvironmentVariables().getENVs().server.port)
-//         server.listen(3000)
-//     }
-// }
-
-const Server = 5
-const ServerInterface = 6
+    listen() {
+        const server = createServer()
+        server.addListener('request',app)
+        // server.listen(new EnvironmentVariables().getENVs().server.port)
+        server.listen(3000)
+    }
+}
 
 export{Server, ServerInterface}
 

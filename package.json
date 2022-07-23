@@ -11,6 +11,7 @@
   "author": "tomer oko",
   "license": "MIT",
   "dependencies": {
+    "@chatmate/zodenv": "^1.0.1",
     "express": "^4.18.1",
     "uuid": "^8.3.2"
   },
