@@ -12,14 +12,13 @@ import {app} from './app'
 import {createServer} from 'http' 
 import {EnvironmentVariables} from './config/ENV/index'
 
-interface ServerInterface {
+export interface ServerInterface {
     listen()
 }
 
-class Server implements ServerInterface{
+export class Server implements ServerInterface{
 
     constructor(){}
-
 
     listen() {
         const server = createServer()

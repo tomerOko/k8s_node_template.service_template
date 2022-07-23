@@ -39,7 +39,10 @@ a. create a template with the musts
         2. also handle unhandled requests
         3. response codes
     3. syntax standards
-        a. linting
+        a. linting (eslint, prettier) (spaces, double vs single quotes, class names, cammelCase, etc..)
+            I. dosent let to git commit with linting problems
+            II. option to auto indentatio ('indent file command')
+            III. some place that shows all current linting problems
         b. just standarts
     4. DB connectors (let's say mongo and mysql, but two at least to keep everything abstract)
     5. cashing with Redis

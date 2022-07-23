@@ -10,20 +10,56 @@
  */
 
 
-import * as process from 'process';
-import Server from './server'
-import {ENV , Secret} from './config/ENV/index'
-import {DPContainer} from './config/DependencyInjection/index'
-import {server} from './server'
+// import {ENV , Secret} from './config/ENV/index'
+// import {DPContainer} from './config/DependencyInjection/index'
 
-console.log(`service initialization has started at ${Date.now().toLocaleString()} ` , `Version: ${process.version}`) //TODO: 1.replace with a propper logger 2. add some info like $ip, $time, $serviceName, $NODE_ENV
-const envs = ENV()
-const secrets = Secret()
-const DPC = DPContainer()
-DPC.DBConnections.connectMainServiceDB()
-DPC.DBConnections.connectSessionDB()
-DPC.DBConnections.connectCacheDB()
-DPC.eventBus.checkConnection()
-DPC.thirdPartyApis.connectAll()
-DPC.serviceMesh.connect()
-server.strart()
+// const envs = ENV()
+// const secrets = Secret()
+// const DPC = DPContainer()
+// DPC.DBConnections.connectMainServiceDB()
+// DPC.DBConnections.connectSessionDB()
+// DPC.DBConnections.connectCacheDB()
+// DPC.eventBus.checkConnection()
+// DPC.thirdPartyApis.connectAll()
+// DPC.serviceMesh.connect()
+// server.strart()
+
+import { ServerInterface, Server } from "./server";
+
+class Index {
+
+    private server:ServerInterface
+
+    constructor(
+        private initialized:boolean = false
+    ){}
+
+    initialize(){
+
+    }
+
+    runServer(){
+        this.checkThatServerBeenInitialaized()
+        this.logDetalisAboutTheServer()
+    }
+
+    private checkThatServerBeenInitialaized(){
+        if (!this.initialized) {
+            //TODO: use error code and add log
+            throw new Error("tring to runs the server before invironment been initialized");
+        }
+    }
+
+    private logDetalisAboutTheServer() {
+        
+ //TODO: use a real logger
+        //TODO:log details about the service on booting
+        console.log(
+            `service initialization has started at ${Date.now().toLocaleString()} ` , `Version: ${process.version}`) //TODO: 1.replace with a propper logger 2. add some info like $ip, $time, $serviceName, $NODE_ENV
+    }
+
+}
+
+new Index().run()
+
+
