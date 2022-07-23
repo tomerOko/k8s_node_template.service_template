@@ -26,40 +26,58 @@
 
 import { ServerInterface, Server } from "./server";
 
-class Index {
+// class Index {
 
-    private server:ServerInterface
+//     private server:ServerInterface
 
-    constructor(
-        private initialized:boolean = false
-    ){}
+//     constructor(
+//         private initialized:boolean = false
+//     ){}
 
-    initialize(){
+//     async initialize(){
 
-    }
+//     }
 
-    runServer(){
-        this.checkThatServerBeenInitialaized()
-        this.logDetalisAboutTheServer()
-    }
+//     async runServer(){
+//         this.checkThatServerBeenInitialaized()
+//         this.logDetalisAboutTheServer()
+//     }
 
-    private checkThatServerBeenInitialaized(){
-        if (!this.initialized) {
-            //TODO: use error code and add log
-            throw new Error("tring to runs the server before invironment been initialized");
-        }
-    }
+//     private checkThatServerBeenInitialaized(){
+//         if (!this.initialized) {
+//             //TODO: use error code and add log
+//             throw new Error("tring to runs the server before invironment been initialized");
+//         }
+//     }
 
-    private logDetalisAboutTheServer() {
-        
- //TODO: use a real logger
-        //TODO:log details about the service on booting
-        console.log(
-            `service initialization has started at ${Date.now().toLocaleString()} ` , `Version: ${process.version}`) //TODO: 1.replace with a propper logger 2. add some info like $ip, $time, $serviceName, $NODE_ENV
-    }
+//     private logDetalisAboutTheServer() {
+//         //TODO: use a real logger
+//         //TODO:log details about the service on booting
+//         console.log(
+//             `service initialization has started at ${Date.now().toLocaleString()} ` , `Version: ${process.version}`) //TODO: 1.replace with a propper logger 2. add some info like $ip, $time, $serviceName, $NODE_ENV
+//     }
 
-}
+// }
 
-new Index().run()
+// const logSuccessfulServiceRun = () => {
+//     //TODO:
+// }
+
+// const run = async () => {
+//     const service = new Index()
+//     await service.initialize()
+//     await service.runServer()
+//     logSuccessfulServiceRun()
+// }
+
+// console.log("hallow")
+// run()
 
 
+
+
+
+
+
+
+console.log("hallow")
